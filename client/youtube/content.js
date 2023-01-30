@@ -1,6 +1,10 @@
 function videoClick() {
-    console.log("clicked")
-    // document.querySelector("video").click()
+    // play or pause
+    document.querySelector("video")?.click()
 }
 
-videoClick()
+chrome.runtime.onMessage.addListener(message => {
+    if (message.trigger) {
+        videoClick()
+    }
+})
